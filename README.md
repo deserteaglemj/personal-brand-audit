@@ -4,11 +4,13 @@ A free Claude skill that audits your own social account. You give it your last 3
 
 It judges you against your own median, not against other creators. Every finding comes with the number behind it.
 
-Works for Instagram, TikTok, YouTube, X and LinkedIn. No API key, no connected account, no login. Your numbers stay on your computer.
+See a full example: [examples/report.md](examples/report.md).
+
+Works for Instagram, TikTok, YouTube, X and LinkedIn. No API key, no connected account, no login. The script sends nothing anywhere; your numbers go only into your own Claude chat.
 
 ## What you get
 
-1. Your medians (reach, views, saves, shares, comments).
+1. Your medians (reach, views, saves, shares, comments) and your usual save and share rates.
 2. The posts that beat your median, and what they have in common.
 3. The formats and topics that sit under half your median.
 4. Stop, Keep and Test lists.
@@ -38,12 +40,12 @@ Open `SKILL.md`, copy all of it into a chat, and say: `Follow this. Audit my pag
   - Paste a table into the chat.
   - Screenshot each post's insights. Claude reads them into a table and shows it back to you first.
 
-In a CSV, write `1000`, not `1,000`, or put the number in quotes.
+In a CSV, write `1000`, not `1,000`, or put the number in quotes. Semicolon-separated files from Excel are read too. Write decimals with a point (`1.5`): a decimal comma (`1,5`) is refused with a warning, not guessed.
 
 ## Run the arithmetic yourself
 
 ```bash
-python3 scripts/audit.py template.csv
+python3 scripts/audit.py examples/posts.csv
 ```
 
 ```bash
@@ -51,6 +53,10 @@ python3 scripts/audit.py --selftest
 ```
 
 Python 3.9 or newer. Standard library only.
+
+## Your data
+
+The script reads the one file you name, writes nothing and connects to nothing. Details: [SECURITY.md](SECURITY.md).
 
 ## Limits
 

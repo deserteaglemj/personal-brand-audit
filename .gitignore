@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+# your own numbers stay out of the repo
+posts.csv
+!examples/posts.csv
